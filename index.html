@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS 6 | AI News Detector</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #07111f;
+      color: #edf5ff;
+    }
+    header {
+      padding: 22px 8%;
+      border-bottom: 1px solid #23364f;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { color: #54d6ff; font-size: 25px; font-weight: bold; }
+    .badge {
+      border: 1px solid #287d92;
+      color: #70e4ff;
+      padding: 7px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+    main {
+      max-width: 850px;
+      margin: 65px auto;
+      padding: 0 20px;
+    }
+    .tag { color: #54d6ff; letter-spacing: 3px; font-size: 12px; }
+    h1 { font-size: clamp(34px, 7vw, 55px); margin-bottom: 15px; }
+    h1 span { color: #54d6ff; }
+    .intro { color: #a9bad0; line-height: 1.7; }
+    .panel {
+      background: #101e31;
+      border: 1px solid #263e59;
+      border-radius: 16px;
+      padding: 25px;
+      margin-top: 30px;
+    }
+    label { display: block; margin-bottom: 12px; font-weight: bold; }
+    textarea {
+      width: 100%;
+      min-height: 155px;
+      resize: vertical;
+      background: #081525;
+      color: white;
+      border: 1px solid #304760;
+      border-radius: 10px;
+      padding: 15px;
+      font: inherit;
+    }
+    button {
+      margin-top: 16px;
+      width: 100%;
+      padding: 15px;
+      border: 0;
+      border-radius: 9px;
+      background: #54d6ff;
+      color: #07111f;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover { background: #91e7ff; }
+    #result {
+      display: none;
+      margin-top: 20px;
+      padding: 17px;
+      border-radius: 10px;
+      background: #172b40;
+      line-height: 1.6;
+    }
+    .note { color: #9aadc3; font-size: 12px; margin-top: 18px; }
+    footer {
+      text-align: center;
+      color: #8296ad;
+      padding: 30px 15px;
+      border-top: 1px solid #23364f;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">NEXUS 6</div>
+    <div class="badge">AI PROJECT PROTOTYPE</div>
+  </header>
+
+  <main>
+    <div class="tag">INTELLIGENCE · AWARENESS · TRUST</div>
+    <h1>Think before you <span>believe.</span></h1>
+    <p class="intro">
+      A Fake News & Clickbait Detector prototype designed to help
+      users examine suspicious headlines and news content.
+    </p>
+
+    <section class="panel">
+      <label for="news">Enter a headline or news article</label>
+      <textarea id="news" placeholder="Paste your headline or news text here..."></textarea>
+      <button onclick="checkNews()">Examine Text</button>
+      <div id="result" role="status"></div>
+      <p class="note">
+        Prototype interface only. This page does not yet connect to
+        the NEXUS 6 machine-learning model. Its output is not a
+        factual verification of the submitted news.
+      </p>
+    </section>
+  </main>
+
+  <footer>NEXUS 6 · Fake News & Clickbait Detector · V4</footer>
+
+  <script>
+    function checkNews() {
+      const text = document.getElementById("news").value.trim();
+      const result = document.getElementById("result");
+
+      result.style.display = "block";
+
+      if (!text) {
+        result.textContent = "Please enter a headline or news article first.";
+        return;
+      }
+
+      result.textContent =
+        "Text received successfully. The NEXUS 6 machine-learning model " +
+        "is not connected yet, so this prototype cannot determine whether " +
+        "the submitted news is real or fake.";
+    }
+  </script>
+</body>
+</html>
